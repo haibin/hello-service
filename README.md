@@ -1,3 +1,5 @@
+[![Build Status](https://cloud.drone.io/api/badges/haibin/hello-service/status.svg)](https://cloud.drone.io/haibin/hello-service)
+
 # hello-service
 
 ```shell
