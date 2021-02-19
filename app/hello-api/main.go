@@ -6,13 +6,13 @@ import (
 )
 
 func main() {
-	log := log.New(os.Stdout, "SALES : ", log.LstdFlags|log.Lmicroseconds|log.Lshortfile)
-	if err := run(); err != nil {
-		log.Print(err)
+	logger := log.New(os.Stdout, "SALES : ", log.LstdFlags|log.Lmicroseconds|log.Lshortfile)
+	if err := run(logger); err != nil {
+		logger.Print(err)
 		os.Exit(1)
 	}
 }
 
-func run() error {
+func run(log *log.Logger) error {
 	return nil
 }
