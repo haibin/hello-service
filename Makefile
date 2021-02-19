@@ -1,5 +1,5 @@
 build:
-    go build ./...
+	go build ./...
 
 run:
 	go run app/hello-api/main.go
