@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
 
 func main() {
-	fmt.Println("hello world")
+	log := log.New(os.Stdout, "SALES : ", log.LstdFlags|log.Lmicroseconds|log.Lshortfile)
 	if err := run(); err != nil {
 		log.Print(err)
 		os.Exit(1)
