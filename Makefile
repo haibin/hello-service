@@ -3,6 +3,7 @@ build:
 
 fmt:
 	go fmt ./...
+	goimports -w .
 
 run:
 	go run app/hello-api/main.go

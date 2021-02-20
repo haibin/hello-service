@@ -1,11 +1,12 @@
 package handlers
 
 import (
-	"github.com/haibin/hello-service/business/mid"
-	"github.com/haibin/hello-service/foundation/web"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/haibin/hello-service/business/mid"
+	"github.com/haibin/hello-service/foundation/web"
 )
 
 func API(shutdown chan os.Signal, log *log.Logger) *web.App {

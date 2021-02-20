@@ -2,12 +2,13 @@ package web
 
 import (
 	"context"
-	"github.com/dimfeld/httptreemux/v5"
-	"github.com/google/uuid"
 	"net/http"
 	"os"
 	"syscall"
 	"time"
+
+	"github.com/dimfeld/httptreemux/v5"
+	"github.com/google/uuid"
 )
 
 // ctxKey represents the type of value for the context key.
