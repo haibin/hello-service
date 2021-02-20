@@ -7,6 +7,7 @@ steps:
     image: golang
     commands:
       - go get honnef.co/go/tools/cmd/staticcheck
+      - go get golang.org/x/tools/cmd/goimports
       - make build
       - make fmt
       - make test
