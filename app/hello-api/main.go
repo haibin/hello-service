@@ -48,7 +48,7 @@ func run(log *log.Logger) error {
 				return errors.Wrap(err, "generating config version")
 			}
 			fmt.Println(version)
-			return nil
+			return  nil
 		}
 		return errors.Wrap(err, "parsing config")
 	}
