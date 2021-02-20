@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-type check struct {}
+type check struct{}
 
 func (cg check) liveness(ctx context.Context, w http.ResponseWriter, r *http.Request) error {
 	//host, err := os.Hostname()

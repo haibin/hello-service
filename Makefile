@@ -1,6 +1,9 @@
 build:
 	go build ./...
 
+fmt:
+	go fmt ./...
+
 run:
 	go run app/hello-api/main.go
 

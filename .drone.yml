@@ -8,4 +8,5 @@ steps:
     commands:
       - go get honnef.co/go/tools/cmd/staticcheck
       - make build
+      - make fmt
       - make test

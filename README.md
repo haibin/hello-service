@@ -11,3 +11,8 @@ Install `staticcheck`.
 ```shell
 $ go get honnef.co/go/tools/cmd/staticcheck 
 ```
+
+## Flow
+
+Request  -> Logger middleware -> Errors middleware -> handler
+Response <- Logger middleware <- Errors middleware <- handler 

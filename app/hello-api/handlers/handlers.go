@@ -9,7 +9,8 @@ import (
 )
 
 func API(shutdown chan os.Signal, log *log.Logger) *web.App {
-	app := web.NewApp(shutdown, mid.Errors(log))
+	// logger comes before errors
+	app := web.NewApp(shutdown, mid.Logger(log), mid.Errors(log))
 
 	check := check{}
 	// We want check.liveness to return errors.

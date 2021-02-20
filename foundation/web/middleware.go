@@ -21,4 +21,3 @@ func wrapMiddleware(mw []Middleware, handler Handler) Handler {
 
 	return handler
 }
-
