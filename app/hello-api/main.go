@@ -17,6 +17,13 @@ import (
 
 func main() {
 	logger := log.New(os.Stdout, "HELLO : ", log.LstdFlags|log.Lmicroseconds|log.Lshortfile)
+
+	ageId := 5
+	fmt.Println(ageId)
+
+	var bad_name int = 10
+	fmt.Println(bad_name)
+
 	if err := run(logger); err != nil {
 		logger.Print(err)
 		os.Exit(1)
@@ -48,7 +55,7 @@ func run(log *log.Logger) error {
 				return errors.Wrap(err, "generating config version")
 			}
 			fmt.Println(version)
-			return  nil
+			return nil
 		}
 		return errors.Wrap(err, "parsing config")
 	}
