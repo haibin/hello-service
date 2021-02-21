@@ -22,7 +22,7 @@ func main() {
 	fmt.Println(ageId)
 
 	var bad_name int = 10
-	fmt.Println(bad_name
+	fmt.Println(bad_name)
 
 	if err := run(logger); err != nil {
 		logger.Print(err)
