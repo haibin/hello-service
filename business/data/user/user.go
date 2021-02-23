@@ -2,10 +2,11 @@ package user
 
 import (
 	"context"
-	"github.com/google/uuid"
-	"github.com/pkg/errors"
 	"log"
 	"time"
+
+	"github.com/google/uuid"
+	"github.com/pkg/errors"
 
 	"github.com/jmoiron/sqlx"
 	"golang.org/x/crypto/bcrypt"

@@ -1,8 +1,9 @@
 package user
 
 import (
-	"github.com/lib/pq"
 	"time"
+
+	"github.com/lib/pq"
 )
 
 // Info represents an individual user.

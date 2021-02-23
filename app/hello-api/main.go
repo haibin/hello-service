@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/haibin/hello-service/business/database"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/haibin/hello-service/business/database"
 
 	"github.com/ardanlabs/conf"
 	"github.com/haibin/hello-service/app/hello-api/handlers"

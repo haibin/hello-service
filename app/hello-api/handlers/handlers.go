@@ -1,11 +1,12 @@
 package handlers
 
 import (
-	"github.com/haibin/hello-service/business/data/user"
-	"github.com/jmoiron/sqlx"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/haibin/hello-service/business/data/user"
+	"github.com/jmoiron/sqlx"
 
 	"github.com/haibin/hello-service/business/mid"
 	"github.com/haibin/hello-service/foundation/web"

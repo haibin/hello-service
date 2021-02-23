@@ -3,11 +3,12 @@ package web
 import (
 	"encoding/json"
 	"errors"
-	"github.com/go-playground/locales/en"
-	ut "github.com/go-playground/universal-translator"
 	"net/http"
 	"reflect"
 	"strings"
+
+	"github.com/go-playground/locales/en"
+	ut "github.com/go-playground/universal-translator"
 
 	validator "gopkg.in/go-playground/validator.v9"
 	en_translations "gopkg.in/go-playground/validator.v9/translations/en"

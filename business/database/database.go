@@ -1,8 +1,9 @@
 package database
 
 import (
-	"github.com/jmoiron/sqlx"
 	"net/url"
+
+	"github.com/jmoiron/sqlx"
 )
 
 // Config is the required properties to use the database.
