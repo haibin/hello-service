@@ -4,6 +4,10 @@ build:
 lint:
 	golangci-lint run
 
+fix:
+	go fmt ./...
+	goimports -w .
+
 run:
 	go run app/hello-api/main.go
 

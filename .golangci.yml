@@ -10,7 +10,6 @@ linters:
     - dupl
     - errcheck
     - exhaustive
-    - gochecknoinits
     - goconst
     - gocyclo
     - gofmt
@@ -23,7 +22,6 @@ linters:
     - govet
     - ineffassign
     - interfacer
-    - lll
     - misspell
     - nakedret
     - noctx
