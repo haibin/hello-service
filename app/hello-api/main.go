@@ -18,12 +18,6 @@ import (
 func main() {
 	logger := log.New(os.Stdout, "HELLO : ", log.LstdFlags|log.Lmicroseconds|log.Lshortfile)
 
-	ageId := 5
-	fmt.Println(ageId)
-
-	var bad_name int = 10
-	fmt.Println(bad_name)
-
 	if err := run(logger); err != nil {
 		logger.Print(err)
 		os.Exit(1)
