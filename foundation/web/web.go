@@ -45,8 +45,7 @@ func (a *App) Handle(method string, path string, handler Handler) {
 	handler = wrapMiddleware(a.mw, handler)
 
 	h := func(w http.ResponseWriter, r *http.Request) {
-		// Set the context with the required values to
-		// process the request.
+		// Set the context with the "required" values to process the request.
 		v := Values{
 			TraceID: uuid.New().String(),
 			Now:     time.Now(),

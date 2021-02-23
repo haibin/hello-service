@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/haibin/hello-service/business/database"
 	"log"
 	"net/http"
 	"os"
@@ -32,6 +33,13 @@ func run(log *log.Logger) error {
 			WriteTimeout    time.Duration `conf:"default:5s"`
 			ShutdownTimeout time.Duration `conf:"default:5s"`
 		}
+		DB struct {
+			User       string `conf:"default:postgres"`
+			Password   string `conf:"default:postgres,noprint"`
+			Host       string `conf:"default:db"`
+			Name       string `conf:"default:postgres"`
+			DisableTLS bool   `conf:"default:true"`
+		}
 	}
 
 	if err := conf.Parse(os.Args[1:], "HELLO", &cfg); err != nil {
@@ -60,6 +68,26 @@ func run(log *log.Logger) error {
 	}
 	log.Printf("main: Config :\n%v\n", out)
 
+	// =========================================================================
+	// Start Database
+
+	log.Println("main: Initializing database support")
+
+	db, err := database.Open(database.Config{
+		User:       cfg.DB.User,
+		Password:   cfg.DB.Password,
+		Host:       cfg.DB.Host,
+		Name:       cfg.DB.Name,
+		DisableTLS: cfg.DB.DisableTLS,
+	})
+	if err != nil {
+		return errors.Wrap(err, "connecting to db")
+	}
+	defer func() {
+		log.Printf("main: Database Stopping : %s", cfg.DB.Host)
+		db.Close()
+	}()
+
 	// Make a channel to listen for an interrupt or terminate signal from the OS.
 	// Use a buffered channel because the signal package requires it.
 	shutdown := make(chan os.Signal, 1)
@@ -67,7 +95,7 @@ func run(log *log.Logger) error {
 
 	api := http.Server{
 		Addr:         cfg.Web.APIHost,
-		Handler:      handlers.API(shutdown, log),
+		Handler:      handlers.API(shutdown, log, db),
 		ReadTimeout:  cfg.Web.ReadTimeout,
 		WriteTimeout: cfg.Web.WriteTimeout,
 	}

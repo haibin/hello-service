@@ -41,3 +41,9 @@ func NewShutdownError(message string) error {
 func (s *shutdown) Error() string {
 	return s.Message
 }
+
+// NewRequestError wraps a provided error with an HTTP status code. This
+// function should be used when handlers encounter expected errors.
+func NewRequestError(err error, status int) error {
+	return &Error{err, status, nil}
+}
