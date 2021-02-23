@@ -25,6 +25,5 @@ func API(shutdown chan os.Signal, log *log.Logger, db *sqlx.DB) *web.App {
 	}
 	app.Handle(http.MethodPost, "/v1/users", ug.create)
 
-
 	return app
 }

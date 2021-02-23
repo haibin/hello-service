@@ -85,4 +85,3 @@ func Decode(r *http.Request, val interface{}) error {
 
 	return nil
 }
-
