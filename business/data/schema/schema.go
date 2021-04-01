@@ -2,8 +2,6 @@
 package schema
 
 import (
-	_ "embed" // Embed all sql documents
-
 	"bufio"
 	"strconv"
 	"strings"
@@ -13,13 +11,10 @@ import (
 )
 
 var (
-	//go:embed sql/schema.sql
 	schemaDoc string
 
-	//go:embed sql/seed.sql
 	seedDoc string
 
-	//go:embed sql/delete.sql
 	deleteDoc string
 )
 
