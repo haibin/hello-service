@@ -53,7 +53,8 @@ func (u User) Create(ctx context.Context, traceID string, nu NewUser, now time.T
 	//	database.Log(q, usr.ID, usr.Name, usr.Email, usr.PasswordHash, usr.Roles, usr.DateCreated, usr.DateUpdated),
 	//)
 
-	if _, err = u.db.ExecContext(ctx, q, usr.ID, usr.Name, usr.Email, usr.PasswordHash, usr.Roles, usr.DateCreated, usr.DateUpdated); err != nil {
+	if _, err = u.db.ExecContext(ctx, q,
+		usr.ID, usr.Name, usr.Email, usr.PasswordHash, usr.Roles, usr.DateCreated, usr.DateUpdated); err != nil {
 		return Info{}, errors.Wrap(err, "inserting user")
 	}
 
