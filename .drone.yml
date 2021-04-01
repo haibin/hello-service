@@ -40,4 +40,8 @@ steps:
       - make lint
       - make test
       - go get github.com/schrej/godacov
-      - godacov -t $CODACY_TOKEN -r ./c.out -c ${DRONE_COMMIT}
+      - which godacov
+      - godacov -t "$CODACY" -r ./c.out -c ${DRONE_COMMIT}
+    environment:
+      CODACY:
+        from_secret: CODACY_TOKEN
