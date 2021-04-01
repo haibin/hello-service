@@ -7,6 +7,8 @@ steps:
     image: ubuntu
     commands:
       - set -x
+      - export DEBIAN_FRONTEND=noninteractive
+      - export TZ=Europe/Minsk
       - apt-get update
       - apt-get -y install make golang
       # Install docker
