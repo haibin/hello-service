@@ -40,6 +40,7 @@ steps:
       - make lint
       - make test
       - go get github.com/schrej/godacov
+      - go env GOPATH
       - which godacov
       - godacov -t "$CODACY" -r ./c.out -c ${DRONE_COMMIT}
     environment:
