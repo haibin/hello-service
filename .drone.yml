@@ -12,6 +12,7 @@ steps:
       - apt-get update
       - apt-get -y install make golang
       - go version
+      # go version go1.13.8 linux/amd64
       # Install docker
       - apt-get update
       - apt-get -y install apt-transport-https ca-certificates curl gnupg lsb-release

@@ -26,7 +26,7 @@ type UserTests struct {
 // TestUsers is the entry point for testing user management functions.
 func TestUsers(t *testing.T) {
 	test := tests.NewIntegration(t)
-	t.Cleanup(test.Teardown)
+	//t.Cleanup(test.Teardown)
 
 	shutdown := make(chan os.Signal, 1)
 	tests := UserTests{
