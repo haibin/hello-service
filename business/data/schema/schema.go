@@ -2,7 +2,7 @@
 package schema
 
 import (
-	//_ "embed" // Embed all sql documents
+	_ "embed" // Embed all sql documents
 
 	"bufio"
 	"strconv"

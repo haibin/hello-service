@@ -2,18 +2,17 @@ package tests
 
 import (
 	"bytes"
-	"crypto/rand"
-	"crypto/rsa"
 	"encoding/json"
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/haibin/hello-service/app/hello-api/handlers"
-	"github.com/haibin/hello-service/business/data/schema"
-	"github.com/haibin/hello-service/business/data/user"
+	"github.com/haibin/hello-service/business/validate"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
+	"github.com/haibin/hello-service/app/hello-api/handlers"
+	"github.com/haibin/hello-service/business/data/user"
 	"github.com/haibin/hello-service/business/tests"
 )
 
@@ -34,8 +33,8 @@ func TestUsers(t *testing.T) {
 
 	shutdown := make(chan os.Signal, 1)
 	tests := UserTests{
-		app:        handlers.API(shutdown, test.Log, test.DB),
-		kid:        test.KID,
+		app: handlers.API(shutdown, test.Log, test.DB),
+		kid: test.KID,
 		//userToken:  test.Token("user@example.com", "gophers"),
 		//adminToken: test.Token("admin@example.com", "gophers"),
 	}
@@ -97,4 +96,3 @@ func (ut *UserTests) postUser400(t *testing.T) {
 		}
 	}
 }
-

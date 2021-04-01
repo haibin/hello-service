@@ -1,8 +1,6 @@
 package tests
 
 import (
-	"crypto/rand"
-	"crypto/rsa"
 	"github.com/haibin/hello-service/business/data/schema"
 	"github.com/haibin/hello-service/business/database"
 	"github.com/jmoiron/sqlx"
@@ -10,6 +8,12 @@ import (
 	"os"
 	"testing"
 	"time"
+)
+
+// Success and failure markers.
+const (
+	Success = "\u2713"
+	Failed  = "\u2717"
 )
 
 // Configuration for running tests.
@@ -81,7 +85,6 @@ type Test struct {
 	TraceID  string
 	DB       *sqlx.DB
 	Log      *log.Logger
-	Auth     *auth.Auth
 	KID      string
 	Teardown func()
 
@@ -96,25 +99,17 @@ func NewIntegration(t *testing.T) *Test {
 		t.Fatal(err)
 	}
 
-	// Create RSA keys to enable authentication in our service.
-	keyID := "4754d86b-7a6d-4df5-9c65-224741361492"
-	privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
-	if err != nil {
-		t.Fatal(err)
-	}
 
-	// Build an authenticator using this private key and id for the key store.
-	auth, err := auth.New("RS256", keystore.NewMap(map[string]*rsa.PrivateKey{keyID: privateKey}))
-	if err != nil {
-		t.Fatal(err)
-	}
+	//// Build an authenticator using this private key and id for the key store.
+	//auth, err := auth.New("RS256", keystore.NewMap(map[string]*rsa.PrivateKey{keyID: privateKey}))
+	//if err != nil {
+	//	t.Fatal(err)
+	//}
 
 	test := Test{
 		TraceID:  "00000000-0000-0000-0000-000000000000",
 		DB:       db,
 		Log:      log,
-		Auth:     auth,
-		KID:      keyID,
 		t:        t,
 		Teardown: teardown,
 	}
