@@ -6,7 +6,7 @@ steps:
   - name: build & test
     image: ubuntu
     commands:
-      - set -x
+#      - set -x
       - export DEBIAN_FRONTEND=noninteractive
       - export TZ=Europe/Minsk
       - apt-get update
@@ -41,6 +41,7 @@ steps:
       - make test
       - go get github.com/schrej/godacov
       - go env GOPATH
+      - ls /root/go/bin
       - which godacov
       - godacov -t "$CODACY" -r ./c.out -c ${DRONE_COMMIT}
     environment:
