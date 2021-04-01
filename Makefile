@@ -12,7 +12,7 @@ install-docker:
 
 install-go:
 	apt-get update
-	apt-get -y install golang
+	apt-get -y install golang make
 
 fix:
 	go fmt ./...
