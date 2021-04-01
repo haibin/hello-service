@@ -6,7 +6,7 @@ steps:
   - name: build & test
     image: docker
     commands:
-      - apt-get install go
+      - yum install go
       - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.37.1
       - make build
       - make lint
