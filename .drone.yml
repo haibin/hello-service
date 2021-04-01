@@ -6,6 +6,7 @@ steps:
   - name: build & test
     image: ubuntu
     commands:
+      - set -x
       - apt-get update
       - apt-get -y install make golang
       - make install-docker
