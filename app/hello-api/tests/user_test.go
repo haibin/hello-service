@@ -8,10 +8,6 @@ import (
 	"os"
 	"testing"
 
-	"github.com/haibin/hello-service/business/validate"
-
-	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/haibin/hello-service/app/hello-api/handlers"
 	"github.com/haibin/hello-service/business/data/user"
 	"github.com/haibin/hello-service/business/tests"
@@ -67,33 +63,33 @@ func (ut *UserTests) postUser400(t *testing.T) {
 			}
 			t.Logf("\t%s\tTest %d:\tShould receive a status code of 400 for the response.", tests.Success, testID)
 
-			var got validate.ErrorResponse
-			if err := json.NewDecoder(w.Body).Decode(&got); err != nil {
-				t.Fatalf("\t%s\tTest %d:\tShould be able to unmarshal the response to an error type : %v", tests.Failed, testID, err)
-			}
-			t.Logf("\t%s\tTest %d:\tShould be able to unmarshal the response to an error type.", tests.Success, testID)
+			//var got validate.ErrorResponse
+			//if err := json.NewDecoder(w.Body).Decode(&got); err != nil {
+			//	t.Fatalf("\t%s\tTest %d:\tShould be able to unmarshal the response to an error type : %v", tests.Failed, testID, err)
+			//}
+			//t.Logf("\t%s\tTest %d:\tShould be able to unmarshal the response to an error type.", tests.Success, testID)
 
-			fields := validate.FieldErrors{
-				{Field: "name", Error: "name is a required field"},
-				{Field: "email", Error: "email is a required field"},
-				{Field: "roles", Error: "roles is a required field"},
-				{Field: "password", Error: "password is a required field"},
-			}
-			exp := validate.ErrorResponse{
-				Error:  "data validation error",
-				Fields: fields.Error(),
-			}
+			//fields := validate.FieldErrors{
+			//	{Field: "name", Error: "name is a required field"},
+			//	{Field: "email", Error: "email is a required field"},
+			//	{Field: "roles", Error: "roles is a required field"},
+			//	{Field: "password", Error: "password is a required field"},
+			//}
+			//exp := validate.ErrorResponse{
+			//	Error:  "data validation error",
+			//	Fields: fields.Error(),
+			//}
 
 			// We can't rely on the order of the field errors so they have to be
 			// sorted. Tell the cmp package how to sort them.
-			sorter := cmpopts.SortSlices(func(a, b validate.FieldError) bool {
-				return a.Field < b.Field
-			})
+			//sorter := cmpopts.SortSlices(func(a, b validate.FieldError) bool {
+			//	return a.Field < b.Field
+			//})
 
-			if diff := cmp.Diff(got, exp, sorter); diff != "" {
-				t.Fatalf("\t%s\tTest %d:\tShould get the expected result. Diff:\n%s", tests.Failed, testID, diff)
-			}
-			t.Logf("\t%s\tTest %d:\tShould get the expected result.", tests.Success, testID)
+			//if diff := cmp.Diff(got, exp, sorter); diff != "" {
+			//	t.Fatalf("\t%s\tTest %d:\tShould get the expected result. Diff:\n%s", tests.Failed, testID, diff)
+			//}
+			//t.Logf("\t%s\tTest %d:\tShould get the expected result.", tests.Success, testID)
 		}
 	}
 }
