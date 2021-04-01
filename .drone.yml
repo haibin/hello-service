@@ -10,3 +10,5 @@ steps:
       - make build
       - make lint
       - make test
+      - get github.com/schrej/godacov
+      - godacov -t $CODACY_TOKEN -r ./c.out -c ${DRONE_COMMIT}

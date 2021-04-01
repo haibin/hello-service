@@ -12,7 +12,7 @@ run:
 	go run app/hello-api/main.go
 
 test:
-	go test ./... -count=1
+	go test -count=1 -coverprofile=c.out ./...
 
 tidy:
 	go mod tidy
