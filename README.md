@@ -18,3 +18,4 @@ $ go get honnef.co/go/tools/cmd/staticcheck
 
 Request  -> Logger middleware -> Errors middleware -> handler
 Response <- Logger middleware <- Errors middleware <- handler 
+
