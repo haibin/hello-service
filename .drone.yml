@@ -45,4 +45,6 @@ steps:
       - /root/go/bin/godacov -t "$CODACY" -r ./c.out -c ${DRONE_COMMIT}
     environment:
       CODACY:
+        # Project API Token at https://app.codacy.com/gh/haibin/hello-service/settings/integrations
+        # Saved in drone https://cloud.drone.io/haibin/hello-service/settings/secrets
         from_secret: CODACY_TOKEN
