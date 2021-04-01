@@ -42,8 +42,7 @@ steps:
       - go get github.com/schrej/godacov
       - go env GOPATH
       - ls /root/go/bin
-      - which godacov
-      - godacov -t "$CODACY" -r ./c.out -c ${DRONE_COMMIT}
+      - /root/go/bin/godacov -t "$CODACY" -r ./c.out -c ${DRONE_COMMIT}
     environment:
       CODACY:
         from_secret: CODACY_TOKEN
