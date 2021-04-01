@@ -6,8 +6,9 @@ steps:
   - name: build & test
     image: ubuntu
     commands:
+      - apt-get update
+      - apt-get -y install make golang
       - make install-docker
-      - make install-go
       - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.37.1
       - make build
       - make lint

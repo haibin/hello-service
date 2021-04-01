@@ -10,10 +10,6 @@ install-docker:
 	apt-get update
 	apt-get -y install docker-ce docker-ce-cli containerd.io
 
-install-go:
-	apt-get update
-	apt-get -y install golang make
-
 fix:
 	go fmt ./...
 	goimports -w .
