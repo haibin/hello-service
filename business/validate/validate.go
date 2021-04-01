@@ -21,7 +21,6 @@ var validate *validator.Validate
 var translator *ut.UniversalTranslator
 
 func init() {
-
 	// Instantiate the validator for use.
 	validate = validator.New()
 
@@ -34,7 +33,7 @@ func init() {
 
 	// Register the english error messages for validation errors.
 	lang, _ := translator.GetTranslator("en")
-	en_translations.RegisterDefaultTranslations(validate, lang)
+	_ = en_translations.RegisterDefaultTranslations(validate, lang)
 
 	// Use JSON tag names for errors instead of Go struct names.
 	validate.RegisterTagNameFunc(func(fld reflect.StructField) string {
@@ -67,7 +66,6 @@ func CheckID(id string) error {
 // Check validates the provided model against it's declared tags.
 func Check(val interface{}) error {
 	if err := validate.Struct(val); err != nil {
-
 		// Use a type assertion to get the real error value.
 		verrors, ok := err.(validator.ValidationErrors)
 		if !ok {

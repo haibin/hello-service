@@ -1,13 +1,14 @@
 package tests
 
 import (
-	"github.com/haibin/hello-service/business/data/schema"
-	"github.com/haibin/hello-service/business/database"
-	"github.com/jmoiron/sqlx"
 	"log"
 	"os"
 	"testing"
 	"time"
+
+	"github.com/haibin/hello-service/business/data/schema"
+	"github.com/haibin/hello-service/business/database"
+	"github.com/jmoiron/sqlx"
 )
 
 // Success and failure markers.
@@ -99,7 +100,6 @@ func NewIntegration(t *testing.T) *Test {
 		t.Fatal(err)
 	}
 
-
 	//// Build an authenticator using this private key and id for the key store.
 	//auth, err := auth.New("RS256", keystore.NewMap(map[string]*rsa.PrivateKey{keyID: privateKey}))
 	//if err != nil {
@@ -116,4 +116,3 @@ func NewIntegration(t *testing.T) *Test {
 
 	return &test
 }
-

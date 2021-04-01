@@ -3,11 +3,12 @@ package tests
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/haibin/hello-service/business/validate"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
+
+	"github.com/haibin/hello-service/business/validate"
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
@@ -20,9 +21,9 @@ import (
 // dependencies for tests while still providing a convenient syntax when
 // subtests are registered.
 type UserTests struct {
-	app        http.Handler
-	kid        string
-	userToken  string
+	app http.Handler
+	kid string
+	//userToken  string
 	adminToken string
 }
 
